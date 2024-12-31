@@ -1,0 +1,182 @@
+.v{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #000000f7, #5c0101);
+    
+}
+
+.container2{
+    position: relative;
+}
+
+.quadrado{
+    width: 260px;
+    height: 200px;
+    background-color: #ff2121;
+    position: relative;
+}  
+
+.quadrado::before{
+    position: absolute;
+    content: "";
+    height: 0;
+    width: 0;
+    border-bottom: 200px solid #ff5e5e;
+    border-left: 260px solid transparent;
+    z-index: 2;
+
+}
+
+.quadrado::after{
+    position: absolute;
+    content: "";
+    height: 0;
+    width: 0;
+    border-top: 100px solid transparent;
+    border-left: 132px solid #ff4141;
+    border-bottom: 100px solid transparent;
+    z-index: 2;
+}
+
+.p{
+    position: absolute;
+    width: 100%;
+    height: 65px;
+    z-index: 900;
+}
+
+.click{
+    position: absolute;
+    z-index: 900;
+    top: 41%;
+    left: 44%;
+    color: #ff5e5e;
+}
+
+.triangulo{
+    height: 0;
+    width: 0;
+    border-top: 100px solid red;
+    border-left: 131px solid transparent;
+    border-right: 131px solid transparent;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    transform-origin: top center;
+} 
+
+.imagem{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 180px;
+    background-color: white;
+    border: 1px solid black;
+    z-index: 1;
+}
+.animacao{
+    animation: opem 1s linear 1 forwards;
+
+}
+
+.anima-quadrado{
+    animation: descer 1.3s linear 1s forwards;
+}
+
+.anima-msg{
+    animation: msg 2s ease-out 1s forwards;
+} 
+
+.reverse-animacao{
+    
+    animation: reverse-opem 1s linear 2.4s 1 backwards;
+    
+    
+}
+
+
+.reverse-msg{
+    animation: reverse-msg 2s ease-out forwards;
+} 
+
+.reverse-quadrado{
+    animation: reverse-descer 1.3s linear 1s backwards;
+}
+
+
+
+
+
+@keyframes opem {
+0%{
+    transform-origin: top;
+    transform: rotateX(0deg); 
+}
+100%{
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+}
+
+@keyframes descer {
+0%{
+    top: 0;
+    
+}
+100%{
+    top: 118px; 
+}
+}
+
+@keyframes msg{
+0%{
+    transform:  translate(-50%, -50%) scale(1);
+}
+50%{
+    transform: translate(-50%, -130%) scale(1.3); 
+}
+100%{
+    transform: translate(-50%, -20%) scale(2.5); 
+    z-index: 2;
+}
+}
+
+
+@keyframes reverse-msg{
+    0%{
+        transform: translate(-50%, -20%) scale(2.5); 
+        z-index: 2;
+    }
+    50%{
+        transform: translate(-50%, -130%) scale(1.3); 
+    }
+    100%{
+        transform:  translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes reverse-descer {
+    0%{
+        top: 118px; 
+        
+        
+    }
+    100%{
+        top: 0px;  
+    }
+}
+
+@keyframes reverse-opem {
+    0%{
+         transform: rotateX(180deg);
+        z-index: 0;
+    }
+    100%{
+        transform-origin: top;
+        transform: rotateX(0deg);
+    }
+}
